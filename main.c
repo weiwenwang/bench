@@ -26,7 +26,8 @@ void build_require_string(CON *con) {
     // 处理请求方式
     int type_length = strlen(con->type);
     char *type;
-    for (int i = 0; i < type_length; i++) {
+    int i = 0;
+    for (i; i < type_length; i++) {
         if (con->type[i] >= 97 && con->type[i] <= 122) {
             con->type[i] = con->type[i] - 32;
         }
@@ -43,12 +44,12 @@ void build_require_string(CON *con) {
         printf("url not begin with `http://`");
     }
 
-    char *i = strstr(con->url, "://") + 3;
-    source = strstr(i, "/");
+    char *ii = strstr(con->url, "://") + 3;
+    source = strstr(ii, "/");
     port = 80;
-    int host_length = strlen(i) - strlen(source);
+    int host_length = strlen(ii) - strlen(source);
     host = (char *) malloc(host_length);
-    strncpy(host, i, host_length);
+    strncpy(host, ii, host_length);
 
     strcat(http_url, type);
     strcat(http_url, source);
@@ -101,7 +102,8 @@ int main(int argc, char *argv[]) {
 
 
     pid_t pid;
-    for (int i = 0; i < con.p; i++) {
+    int i = 0;
+    for (i; i < con.p; i++) {
         int ppid;
         ppid = fork();
         if (ppid == 0) { // 子进程

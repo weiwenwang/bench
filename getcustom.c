@@ -13,19 +13,15 @@ int getcustom(int argc, char *argv[], CON *con) {
     };
 
     while ((opt = getopt_long(argc, argv, optstring, long_options, &option_index)) != -1) {
-        switch (opt) {
-            case 't':
-                con->t = atoi(optarg);
-                break;
-            case 'p':
-                con->p = atoi(optarg);
-                break;
-            case 'u':
-                con->url = optarg;
-                break;
-            case 'type':
-                con->type = optarg;
-                break;
+        if (opt == 't') {
+            con->t = atoi(optarg);
+        } else if (opt == 'p') {
+            con->p = atoi(optarg);
+        } else if (opt == 'u') {
+            con->url = optarg;
+        } else if (opt == 'type') {
+            con->type = optarg;
+
         }
     }
 

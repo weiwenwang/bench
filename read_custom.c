@@ -2,7 +2,8 @@
 
 int get_respone_head_line(char *first_buf) {
     int first_sum = strlen(first_buf);
-    for (int i = 0; i < first_sum - 3; i++) {
+    int i = 0;
+    for (i; i < first_sum - 3; i++) {
         if (first_buf[i] == 13 &&
             first_buf[i + 1] == 10 &&
             first_buf[i + 2] == 13 &&
