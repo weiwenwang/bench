@@ -6,3 +6,5 @@ cmake_install.cmake
 getopt_custom
 cmake-build-debug
 getopt_custom.cbp
+
+bench
