@@ -4,6 +4,8 @@ project(getopt_custom)
 set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES
+        read_custom.c
+        read_custom.h
         getcustom.c
         getcustom.h
         socket.c
