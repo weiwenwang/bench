@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project(getopt_custom)
+project(bench)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -12,4 +12,4 @@ set(SOURCE_FILES
         socket.h
         main.c)
 
-add_executable(getopt_custom ${SOURCE_FILES})
+add_executable(bench ${SOURCE_FILES})
