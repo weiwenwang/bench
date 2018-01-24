@@ -89,7 +89,8 @@ int main(int argc, char *argv[]) {
     append_request(SPACE);
     append_request(http_type);
     append_request(CRLF);
-    append_request("Host:192.168.3.45");
+    append_request("Host:");
+    append_request(host);
     append_request(CRLF);
     append_request(User_Aagent);
     append_request(CRLF);
