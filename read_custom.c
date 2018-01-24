@@ -7,6 +7,7 @@ int get_respone_head_line(char *first_buf) {
             first_buf[i + 1] == 10 &&
             first_buf[i + 2] == 13 &&
             first_buf[i + 3] == 10) {
+            // 请求头包含结束符\r\n\r\n
             return i + 4;
         }
     }
@@ -30,12 +31,9 @@ void readn(int sock, void *buf, int sum) {
 
 int readline(int sock, void *buf) {
     int first_size = 400;
-    int second_size = 1024;
     char *bufp = (char *) buf;
-    char second_buff[second_size];
 
     int first_sum = read(sock, bufp, first_size);
-
     int left_sum = 0;
     char *i = strstr(bufp, "Content-Length");
     char dest[16] = {""};
@@ -46,7 +44,6 @@ int readline(int sock, void *buf) {
     }
     int j = strlen("Content-Length: ");
     int num = atoi(&i[j]);
-
 
     int head_line = get_respone_head_line(bufp);
     if (head_line == 0) {
@@ -64,5 +61,5 @@ int readline(int sock, void *buf) {
     } else {
         readn(sock, buf, left_sum);
     }
-    return 0;
+    return num;
 }

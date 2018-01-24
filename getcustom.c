@@ -3,10 +3,10 @@
 int getcustom(int argc, char *argv[], CON *con) {
     int opt;
     int option_index = 0;
-    char *optstring = "t:c:u:type:d";
+    char *optstring = "t:p:u:type:d";
     static struct option long_options[] = {
             {"t",    required_argument, NULL, 't'},
-            {"c",    no_argument,       NULL, 'c'},
+            {"p",    no_argument,       NULL, 'p'},
             {"url",  optional_argument, NULL, 'u'},
             {"type", optional_argument, NULL, 'type'},
             {0, 0, 0,                         0}
@@ -17,8 +17,8 @@ int getcustom(int argc, char *argv[], CON *con) {
             case 't':
                 con->t = atoi(optarg);
                 break;
-            case 'c':
-                con->c = atoi(optarg);
+            case 'p':
+                con->p = atoi(optarg);
                 break;
             case 'u':
                 con->url = optarg;
@@ -28,6 +28,7 @@ int getcustom(int argc, char *argv[], CON *con) {
                 break;
         }
     }
+
     return 0;
 }
 

@@ -8,7 +8,7 @@
 typedef struct con {
     char *url;
     int t;
-    int c;
+    int p;
     char *type;
 } CON;
 
