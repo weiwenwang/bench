@@ -1,10 +1,7 @@
 #ifndef __READ_CUSTOM_
 #define __READ_CUSTOM_
 
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "common.h"
 
 void readn(int sock, void *buf, int sum);
 

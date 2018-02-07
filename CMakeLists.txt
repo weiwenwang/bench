@@ -4,6 +4,7 @@ project(bench)
 set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES
+        common.h
         read_custom.c
         read_custom.h
         getcustom.c

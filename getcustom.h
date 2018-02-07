@@ -1,9 +1,7 @@
 #ifndef __GETOPT_CUSTOM_H
 #define __GETOPT_CUSTOM_H
 
-#include <stdio.h>
-#include <getopt.h>
-#include <stdlib.h>
+#include "common.h"
 
 typedef struct con {
     char *url;

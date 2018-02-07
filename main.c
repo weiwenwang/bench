@@ -1,10 +1,9 @@
-#include <string.h>
-#include <time.h>
-#include <sys/wait.h>
-#include <sys/time.h>
+#include "common.h"
+
 #include "getcustom.h"
 #include "socket.h"
 #include "read_custom.h"
+
 
 char http_url[1024];
 char *host;
