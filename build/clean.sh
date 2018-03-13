@@ -5,5 +5,5 @@ rm ./cmake_install.cmake
 rm -r ./CMakeFiles
 rm ./Makefile
 rm ./CMakeCache.txt
-rm getopt_custom
+rm mini-bench
 echo "rm cmake cache end..."

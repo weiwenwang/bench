@@ -25,8 +25,8 @@ void build_require_string(CON *con) {
     // 处理请求方式
     int type_length = strlen(con->type);
     char *type;
-    int i = 0;
-    for (i; i < type_length; i++) {
+
+    for (int i; i < type_length; i++) {
         if (con->type[i] >= 97 && con->type[i] <= 122) {
             con->type[i] = con->type[i] - 32;
         }
@@ -93,8 +93,6 @@ int main(int argc, char *argv[]) {
     append_request(CRLF);
     append_request(User_Aagent);
     append_request(CRLF);
-    append_request(CRLF);
-
 //    signal(SIGCHLD, handle_sigchld);
 
     struct timeval start, end;
@@ -102,8 +100,7 @@ int main(int argc, char *argv[]) {
 
 
     pid_t pid;
-    int i = 0;
-    for (i; i < con.p; i++) {
+    for (int i; i < con.p; i++) {
         int ppid;
         ppid = fork();
         if (ppid == 0) { // 子进程

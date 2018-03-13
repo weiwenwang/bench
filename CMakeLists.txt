@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project(bench)
+project(mini-bench)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -13,4 +13,4 @@ set(SOURCE_FILES
         socket.h
         main.c)
 
-add_executable(bench ${SOURCE_FILES})
+add_executable(mini-bench ${SOURCE_FILES})
