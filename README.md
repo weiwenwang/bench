@@ -1,3 +1,7 @@
+### 说明
+
+暂时只支持get请求, 不支持Transfer-Encoding: chunked, 只支持Content-Length: xxx
+
 ### 使用方式
 
 ### 下载

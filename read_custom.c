@@ -24,7 +24,6 @@ void readn(int sock, void *buf, int sum) {
             max_size = left_sum;
         }
         int read_sum = read(sock, bufp, max_size);
-        bufp += read_sum;
         left_sum = left_sum - read_sum;
     }
 }
