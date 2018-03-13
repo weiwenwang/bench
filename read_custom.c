@@ -2,8 +2,7 @@
 
 int get_respone_head_line(char *first_buf) {
     int first_sum = strlen(first_buf);
-    int i = 0;
-    for (i; i < first_sum - 3; i++) {
+    for (int i; i < first_sum - 3; i++) {
         if (first_buf[i] == 13 &&
             first_buf[i + 1] == 10 &&
             first_buf[i + 2] == 13 &&
@@ -45,7 +44,6 @@ int readline(int sock, void *buf) {
     }
     int j = strlen("Content-Length: ");
     int num = atoi(&i[j]);
-
     int head_line = get_respone_head_line(bufp);
     if (head_line == 0) {
         printf("get_respone_head_line is error\n");

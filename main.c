@@ -72,8 +72,11 @@ void handle_sigchld(int signo) {
 
 int main(int argc, char *argv[]) {
     CON con;
+    if (argc == 1) {
+        usage();
+        return 2;
+    }
     getcustom(argc, argv, &con);
-
     build_require_string(&con);
 
 
@@ -92,6 +95,7 @@ int main(int argc, char *argv[]) {
     append_request(host);
     append_request(CRLF);
     append_request(User_Aagent);
+    append_request(CRLF);
     append_request(CRLF);
 //    signal(SIGCHLD, handle_sigchld);
 

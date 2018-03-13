@@ -1,16 +1,29 @@
 #include "socket.h"
 
 int Socket(const char *host, int clientPort) {
-    //创建套接字
-    int sock = socket(AF_INET, SOCK_STREAM, 0);
-    //向服务器（特定的IP和端口）发起请求
-    struct sockaddr_in serv_addr;
-    memset(&serv_addr, 0, sizeof(serv_addr));  //每个字节都用0填充
-    serv_addr.sin_family = AF_INET;  //使用IPv4地址
-    serv_addr.sin_addr.s_addr = inet_addr(host);  //具体的IP地址
-    serv_addr.sin_port = htons(clientPort);  //端口
-    if (connect(sock, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
-        perror("connect");
-    }
-    return sock;
+  int sock;
+  unsigned long inaddr;
+  struct sockaddr_in ad;
+  struct hostent *hp;
+
+  memset(&ad, 0, sizeof(ad));
+  ad.sin_family = AF_INET;
+
+  inaddr = inet_addr(host);
+  if (inaddr != INADDR_NONE) {
+     memcpy(&ad.sin_addr, &inaddr, sizeof(inaddr));
+  } else {
+     hp = gethostbyname(host);
+     if (hp == NULL)
+         return -1;
+     memcpy(&ad.sin_addr, hp->h_addr, hp->h_length);
+  }
+  ad.sin_port = htons(clientPort);
+
+  sock = socket(AF_INET, SOCK_STREAM, 0);
+  if (sock < 0)
+     return sock;
+  if (connect(sock, (struct sockaddr *)&ad, sizeof(ad)) < 0)
+     return -1;
+  return sock;
 }
